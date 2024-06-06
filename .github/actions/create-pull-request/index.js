@@ -17,8 +17,7 @@ try {
 
   // Call the function
   run().catch(console.error);
-  // Criar e mudar para a nova branch
-  await exec.exec('git', ['checkout', '-b', branchName]);
+
 
   // Adicionar um arquivo com run_id
   const runId = process.env.GITHUB_RUN_ID;
