@@ -20,10 +20,30 @@ async function run() {
     const filename = `run-id-${runId}.txt`;
     fs.writeFileSync(filename, `run-id-${runId}\n`);
 
-    // Adicionar e commitar o arquivo
+    // Adicionar o arquivo ao staging
     await exec.exec('git', ['add', filename]);
+
+    // Verificar se há mudanças a serem commitadas
+    let changesDetected = false;
+    await exec.exec('git', ['diff', '--cached', '--exit-code'], {
+      ignoreReturnCode: true,
+      listeners: {
+        stderr: (data) => {
+          changesDetected = true;
+        }
+      }
+    });
+
+    if (!changesDetected) {
+      console.log('No changes detected, skipping pull request creation.');
+      return;
+    }
+
+    // Configurar usuário Git
     await exec.exec('git', ['config', '--global', 'user.email', 'APIOPS-Extractor@noreply.com']);
     await exec.exec('git', ['config', '--global', 'user.name', 'APIOPS Extractor']);
+
+    // Commit das mudanças
     await exec.exec('git', ['commit', '-m', `Add ${filename}`]);
 
     // Push da nova branch
