@@ -9,7 +9,9 @@ try {
   const prBody = core.getInput('pr-body');
 
   // Login no GitHub CLI
-  await exec.exec('echo', [githubToken, '|', 'gh', 'auth', 'login', '--with-token']);
+  async function run() {
+    await exec.exec('echo', [githubToken, '|', 'gh', 'auth', 'login', '--with-token']);
+  }
 
   // Criar e mudar para a nova branch
   await exec.exec('git', ['checkout', '-b', branchName]);
