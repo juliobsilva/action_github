@@ -1,0 +1,30 @@
+# .github/workflows/main.yml
+name: 'Create Pull Request Workflow'
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./.github/actions/create-pull-request
+
+      - name: Run custom action to create pull request
+        uses: ./.github/actions/create-pull-request
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          branch-name: "extracted-api/run-id-${{ github.run_id }}"
+          pr-title: "Pull Request for Run ID ${{ github.run_id }}"
+          pr-body: "This PR was created automatically for run ID ${{ github.run_id }}."
