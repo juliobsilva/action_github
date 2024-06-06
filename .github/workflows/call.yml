@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run custom action to create pull request
-        uses: github.com/juliobsilva/action_github@v1
+        uses: ./actions/action_github@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           branch-name: "extracted-api/run-id-${{ github.run_id }}"
