@@ -12,10 +12,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run custom action to create pull request
-        uses: ./actions/action_github@v1
+        uses: juliobsilva/action_github@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           branch-name: "extracted-api/run-id-${{ github.run_id }}"
           pr-title: "Pull Request for Run ID ${{ github.run_id }}"
-          pr-body: "This PR was created automaticamente for run ID ${{ github.run_id }}."
+          pr-body: "This PR was created automatically for run ID ${{ github.run_id }}."
 
