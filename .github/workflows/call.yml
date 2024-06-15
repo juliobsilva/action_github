@@ -19,9 +19,7 @@ jobs:
       - name: Install dependencies
         run: npm install
         working-directory: ./.github/actions/create-pull-request 
-        
-      - name: Install module
-        run: npm install @actions/core
+
 
       - name: Run custom action to create pull request
         uses: juliobsilva/action_github/.github/actions/create-pull-request@main
