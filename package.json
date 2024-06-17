@@ -1,37 +1,36 @@
 {
-    "name": "pr-description-check-action",
-    "version": "1.0.0",
-    "description": "A GitHub Action to check if pull request has a description and adds a comment if not.",
-    "main": "dist/main.js",
-    "scripts": {
-      "build": "tsc",
-      "lint": "eslint src --ext .ts",
-      "prepare": "npm run build"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/your-username/pr-description-check-action.git"
-    },
-    "keywords": [
-      "github",
-      "action",
-      "typescript"
-    ],
-    "author": "Your Name",
-    "license": "MIT",
-    "bugs": {
-      "url": "https://github.com/your-username/pr-description-check-action/issues"
-    },
-    "homepage": "https://github.com/your-username/pr-description-check-action#readme",
-    "devDependencies": {
-      "@types/node": "^20.4.2",
-      "typescript": "^5.1.3",
-      "@actions/github": "^5.0.1",
-      "@actions/core": "^1.10.0",
-      "eslint": "^8.43.0",
-      "@typescript-eslint/eslint-plugin": "^6.1.0",
-      "@typescript-eslint/parser": "^6.1.0"
-    },
-    "dependencies": {}
-  }
-  
+  "name": "pr-description-check-action",
+  "version": "1.0.0",
+  "description": "A GitHub Action to check if pull request has a description and adds a comment if not.",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src --ext .ts",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/pr-description-check-action.git"
+  },
+  "keywords": [
+    "github",
+    "action",
+    "typescript"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/your-username/pr-description-check-action/issues"
+  },
+  "homepage": "https://github.com/your-username/pr-description-check-action#readme",
+  "devDependencies": {
+    "@types/node": "^20.4.2",
+    "typescript": "^5.1.3",
+    "@actions/github": "^5.0.1",
+    "@actions/core": "^1.10.0",
+    "eslint": "^8.43.0",
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
+    "@typescript-eslint/parser": "^6.1.0"
+  },
+  "dependencies": {}
+}
