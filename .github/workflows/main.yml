@@ -45,7 +45,7 @@ jobs:
       #     title: 'Adiciona novo pacote e atualiza dependências'
       #     body: 'Este PR adiciona um novo pacote e atualiza as dependências.'
       - name: Create Pull Request
-        uses: juliobsilva/action-github-create-pullrequest@v1
+        uses: juliobsilva/action-github-create-pullrequest@main
         with:
           token:           ${{ secrets.GITHUB_TOKEN }}
           branch:          ${{ needs.create-branch.outputs.branch }}
