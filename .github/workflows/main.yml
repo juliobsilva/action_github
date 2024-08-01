@@ -43,12 +43,21 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run custom action to create PR
-        uses: ./actions/create-pr
+      # - name: Run custom action to create PR
+      #   uses: ./actions/create-pr
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: ${{ needs.create-branch.outputs.branch }}
+      #     base: 'main'
+      #     commit_message: 'Adiciona novo pacote e atualiza dependências'
+      #     title: 'Adiciona novo pacote e atualiza dependências'
+      #     body: 'Este PR adiciona um novo pacote e atualiza as dependências.'
+      - name: Create Pull Request
+        uses: juliobsilva/action-github-create-pullrequest@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ needs.create-branch.outputs.branch }}
-          base: 'main'
-          commit_message: 'Adiciona novo pacote e atualiza dependências'
-          title: 'Adiciona novo pacote e atualiza dependências'
-          body: 'Este PR adiciona um novo pacote e atualiza as dependências.'
+          token:           ${{ secrets.GITHUB_TOKEN }}
+          branch:          ${{ needs.create-branch.outputs.branch }}
+          base:            "main"
+          commit_message: "A Message for your commit"
+          title:          "A title for your pull_request" 
+          body:           "A Message for your pull_request"
